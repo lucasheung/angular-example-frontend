@@ -1,0 +1,148 @@
+<!-- <div class="login-container">
+  <h2>{{ isLoginModeMode ? "Login" : "Register" }}</h2>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <form (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        (change)="handleValue(password, $event)"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        (change)="handleValue(password, $event)"
+        required
+      />
+    </div>
+    <button type="submit">{{ isLoginModeMode ? "Login" : "Register" }}</button>
+  </form>
+  <button (click)="toggleMode()">
+    {{ isLoginModeMode ? "Switch to Register" : "Switch to Login" }}
+  </button>
+</div> -->
+<!-- login.component.html -->
+<!-- <div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="submit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" name="username" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" name="password" required />
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>{{ isLoginMode ? "Login" : "Register" }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form *ngIf="isLoginMode; else registerForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            name="username"
+            (change)="handleValue('username', $event)"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            (change)="handleValue('password', $event)"
+            required
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="login()"
+        >
+          Login
+        </button>
+      </form>
+      <ng-template #registerForm>
+        <form *ngIf="!isLoginMode">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              type="text"
+              name="newUsername"
+              (change)="handleValue('newUsername', $event)"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              name="newPassword"
+              (change)="handleValue('newPassword', $event)"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              matInput
+              type="password"
+              name="confirmNewPassword"
+              (change)="handleValue('confirmNewPassword', $event)"
+              required
+            />
+          </mat-form-field>
+          <div
+            *ngIf="
+              !isLoginMode &&
+              newPassword !== confirmNewPassword &&
+              newPassword != '' && confirmNewPassword != ''
+            "
+            class="error-message"
+          >
+            Passwords do not match
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="register()"
+          >
+            Register
+          </button>
+        </form>
+      </ng-template>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="toggleMode()">
+        {{ isLoginMode ? "Register" : "Back to Login" }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

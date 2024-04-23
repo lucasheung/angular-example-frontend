@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Manage Positions</h2>
+  <div class="add-position-button-container">
+    <button mat-raised-button (click)="openAddDialog('add')">
+      Add Position
+    </button>
+
+    <button
+      class="margin-left"
+      mat-raised-button
+      (click)="openAddDialog('edit')"
+    >
+      Edit Position
+    </button>
+    <button
+      class="margin-left"
+      mat-raised-button
+      color="primary"
+      (click)="deleteSelectedPositions()"
+    >
+      Remove Selected Position
+    </button>
+  </div>
+  <table mat-table [dataSource]="positions" class="mat-elevation-z8">
+    <!-- Define columns for your table -->
+    <!-- Example: Stock Name -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>Select</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="toggleSelection(row)"
+        ></mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="stockName">
+      <th mat-header-cell *matHeaderCellDef>Stock Name</th>
+      <td mat-cell *matCellDef="let position">{{ position.stock_name }}</td>
+    </ng-container>
+
+    <!-- Define other columns as needed -->
+    <ng-container matColumnDef="CurrentPrice">
+      <th mat-header-cell *matHeaderCellDef>Current Price</th>
+      <td mat-cell *matCellDef="let position">{{ position.current_price }}</td>
+    </ng-container>
+    <ng-container matColumnDef="SharesOwned">
+      <th mat-header-cell *matHeaderCellDef>Shares Owned</th>
+      <td mat-cell *matCellDef="let position">{{ position.shares_owned }}</td>
+    </ng-container>
+    <ng-container matColumnDef="AveragePrice">
+      <th mat-header-cell *matHeaderCellDef>Average Price</th>
+      <td mat-cell *matCellDef="let position">{{ position.average_price }}</td>
+    </ng-container>
+    <!-- Select column -->
+
+    <!-- Row with columns -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

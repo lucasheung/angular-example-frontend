@@ -1,0 +1,38 @@
+.dialog-content {
+  padding: 20px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.mat-dialog-container {
+  max-width: 600px; /* Adjust the width as needed */
+}
+.dialog-title {
+  padding: 16px;
+}
+
+.dialog-content {
+  padding: 16px;
+}
+
+.dialog-actions {
+  padding: 16px;
+  justify-content: space-between; /* Adjust alignment of buttons */
+}
+
+.form-field {
+  width: 100%;
+}
+
+.cancel-button {
+  margin-right: 8px;
+}
+
+.save-button {
+  margin-left: 8px;
+}
+h2{
+  padding:20px
+}

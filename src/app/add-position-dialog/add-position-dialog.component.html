@@ -1,0 +1,37 @@
+<h2 *ngIf="checkMode()" mat-dialog-title>Add New Position</h2>
+<h2 *ngIf="!checkMode()" mat-dialog-title>Edit Position</h2>
+<div mat-dialog-content>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Stock Name"
+      (change)="handleValue('stockName', $event)"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Quantity"
+      type="number"
+      (change)="handleValue('quantity', $event)"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Average Position Price"
+      type="number"
+      (change)="handleValue('average_price', $event)"
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button class="cancel-button" (click)="onCancelClick()">
+    Cancel
+  </button>
+  <button mat-raised-button color="primary" (click)="savePosition()">
+    Save
+  </button>
+</div>

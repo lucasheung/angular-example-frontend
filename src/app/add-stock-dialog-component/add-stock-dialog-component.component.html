@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Add New Stock</h2>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Stock Name"
+      (change)="handleValue('stockName', $event)"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Current Price"
+      type="number"
+      (change)="handleValue('currentPrice', $event)"
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button class="cancel-button" (click)="onCancelClick()">
+    Cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="save-button"
+    (click)="onSaveClick()"
+  >
+    Save
+  </button>
+</div>

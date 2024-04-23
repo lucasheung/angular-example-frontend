@@ -1,0 +1,20 @@
+.mat-cell, .mat-header-cell {
+    padding: 8px; /* Adjust padding as needed */
+  }
+  
+  .mat-column-stock_name {
+    width: 50%; /* Adjust the width of the column as needed */
+  }
+  
+  .mat-column-current_price {
+    width: 50%; /* Adjust the width of the column as needed */
+  }
+  .mat-header-cell, .mat-cell {
+    justify-content: center!important;
+  }
+  .add-position-button-container {
+    padding: 16px;
+  }
+  .margin-left{
+    margin-left: 20px;
+  }

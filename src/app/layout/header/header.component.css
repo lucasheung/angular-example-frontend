@@ -1,0 +1,45 @@
+.wrapper {
+    width: 100%;
+  
+    border-bottom: 1px solid var(--border-color);
+  
+    padding: 2rem;
+  
+    box-sizing: border-box;
+  
+    a {
+      text-decoration: none;
+      font-weight: 300;
+      color: black;
+  
+      &.active {
+        font-weight: 900;
+      }
+    }
+  
+    .logo {
+      height: 100%;
+      object-fit: contain;
+  
+      height: 2rem;
+  
+      margin-right: auto;
+    }
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .col {
+    flex: 0.1;
+  }
+  
+  .spacer {
+    flex: auto; /* Make the spacer column auto size based on its content */
+    text-align: right;
+  }
+  .padding-right{
+    padding-right:20px ;
+  }
